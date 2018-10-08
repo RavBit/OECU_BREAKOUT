@@ -16,7 +16,7 @@ public class ParamCube : MonoBehaviour {
 	void Update () {
         if(_useBuffer)
         {
-            transform.localScale = new Vector3(transform.localScale.x , transform.localScale.y, (AudioDataCollector._audioBandBuffer[_band] * _scaleMultiplier) + _startScale);
+            transform.localScale = new Vector3((AudioDataCollector._audioBandBuffer[_band] * _scaleMultiplier) + _startScale, transform.localScale.y, transform.localScale.z);
             float colormix = AudioDataCollector._audioBandBuffer[_band] * 255;
             Color32 _color = new Color32(255, (byte)colormix, 255, 255);
             Debug.Log(colormix);

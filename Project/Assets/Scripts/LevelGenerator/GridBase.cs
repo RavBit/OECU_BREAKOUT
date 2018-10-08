@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridBase : MonoBehaviour {
     public GameObject BackgroundPrefab;
+    public List<GameObject> NodeObjects;
     public GameObject NodePrefab;
     [Header("Size for Grid:")]
     public int xSize, ySize;
@@ -11,29 +12,26 @@ public class GridBase : MonoBehaviour {
 
 
     //METHODS:
-    public delegate void OnGenerateLevel();
-    public event OnGenerateLevel GeneratedLevel;
+    /*public delegate void OnGenerateLevel();
+    public event OnGenerateLevel GeneratedLevel;*/
 
-    //TODO LINK CLASSES CORRECTLY:
-    public LevelLoader LL;
+
     // Use this for initialization
     void Start () {
-        GeneratedLevel += GenerateLevel;
+        //GeneratedLevel += GenerateLevel;
         mapData = new Node[xSize, ySize];
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    protected virtual void OnGeneratedLevel()
+
+    /*protected virtual void OnGeneratedLevel()
     {
         if(GeneratedLevel != null)
         {
             GeneratedLevel();
         }
-    }
+    }*/
     
+
+
     public void GenerateLevel()
     {
         for (int x = 0; x < xSize; x++)
@@ -49,24 +47,27 @@ public class GridBase : MonoBehaviour {
 
     public void LoadNodes()
     {
-        foreach(Node n in LL.Nodes)
+        foreach(Node n in GetComponent<LevelLoader>().Levels[0].nodes)
         {
-            if(mapData[n.nodePosX, n.nodePosY] != null)
+            if(mapData[n.NodePosX, n.NodePosY] != null)
             {
-                Debug.LogError("Can't draw [NODE: " + n.nodePosX + "." + n.nodePosY + "] Location used by [NODE :" + mapData[n.nodePosX, n.nodePosY].nodePosX + "." + mapData[n.nodePosX, n.nodePosY].nodePosY+ "]");
+                Debug.LogError("Can't draw [NODE: " + n.NodePosX + "." + n.NodePosY + "] Location used by [NODE :" + mapData[n.NodePosX, n.NodePosY].NodePosX + "." + mapData[n.NodePosX, n.NodePosY].NodePosY+ "]");
             }
             else
             {
-                GameObject _node = Instantiate(NodePrefab, new Vector3(n.nodePosX, n.nodePosY, 0), Quaternion.identity) as GameObject;
+                GameObject _node = Instantiate(NodePrefab, new Vector3(n.NodePosX, n.NodePosY, 0), Quaternion.identity) as GameObject;
                 _node.transform.parent = this.transform;
+                n.BlockEffects = _node.GetComponent<BlockEffects>();
                 DirectionNode(n);
+                n.InitEffects();
             }
 
 
 
         }
     }
-    public void DirectionNode(Node n)
+
+    private void DirectionNode(Node n)
     {
         switch(n.dir)
         {
@@ -78,16 +79,12 @@ public class GridBase : MonoBehaviour {
                 }
                 for (int i = 0; i <= cal; i++)
                 {
-                    if (n.nodePosX - i > 0)
-                        mapData[n.nodePosX - i, n.nodePosY] = n;
-                    if (n.nodePosX + i < mapData.Length)
-                        mapData[n.nodePosX + i, n.nodePosY] = n;
+                    if (n.NodePosX - i > 0)
+                        mapData[n.NodePosX - i, n.NodePosY] = n;
+                    if (n.NodePosX + i < mapData.Length)
+                        mapData[n.NodePosX + i, n.NodePosY] = n;
                 }
                 break;
         }
-    }
-    public void MapTiles()
-    {
-
     }
 }

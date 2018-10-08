@@ -1,32 +1,106 @@
 {
-    "nodes":[
+  "levels":[
+    {"nodes":[
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 7,
+            "maxSize" : 7,
+            "band": 7,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 6,
+            "maxSize" : 6,
+            "band": 6,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 5,
+            "maxSize" : 5,
+            "band": 5,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 4,
+            "maxSize" : 4,
+            "band": 4,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 3,
+            "maxSize" : 3,
+            "band": 3,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 2,
+            "maxSize" : 2,
+            "band": 2,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 1,
+            "maxSize" : 2,
+            "band": 1,
+            "Dir": "Middle"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 5,
+            "nodePosY" : 0,
+            "maxSize" : 2,
+            "band": 0,
+            "Dir": "Middle"
+          }
+      ]
+    },
+    {"nodes":[
           {
             "Name:":"Block:",
             "nodePosX" : 0,
             "nodePosY" : 0,
             "maxSize" : 3,
-            "Dir": "Left"
+            "band": 1,
+            "Dir": "Right"
           },
           {
             "Name:":"Block:",
             "nodePosX" : 0,
             "nodePosY" : 1,
             "maxSize" : 3,
-            "Dir": "Left"
+            "band": 1,
+            "Dir": "Right"
           },
           {
             "Name:":"Block:",
             "nodePosX" : 2,
             "nodePosY" : 0,
             "maxSize" : 3,
-            "Dir": "Left"
+            "band": 1,
+            "Dir": "Right"
           },
           {
             "Name:":"Block:",
             "nodePosX" : 2,
             "nodePosY" : 2,
+            "band": 1,
             "maxSize" : 3,
-            "Dir": "Left"
+            "Dir": "Right"
           }
       ]
+    }
+    ]
 }

@@ -1,0 +1,7 @@
+﻿
+
+
+interface iNode
+{
+    void AdjustSound();
+}

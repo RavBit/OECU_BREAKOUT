@@ -11,11 +11,11 @@ public class LevelManager : MonoBehaviour {
 
     void Test()
     {
-        GetComponent<GridBase>().CreateGrid();
+        GetComponent<GridBase>().GenerateLevel();
     }
 	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

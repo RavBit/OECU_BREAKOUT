@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,8 @@ using System.IO;
 using Newtonsoft.Json;
 
 public class LevelLoader : MonoBehaviour {
-    private NodesContainer nodes;
-    public List<Node> Nodes;
+    private LevelsContainer levels;
+    public List<Level> Levels;
     private string dataPath;
     [ContextMenu("LoadFromJson")]
     public void Start()
@@ -20,14 +21,14 @@ public class LevelLoader : MonoBehaviour {
         using (StreamReader stream = new StreamReader(dataPath))
         {
             string json = stream.ReadToEnd();
-            nodes = JsonConvert.DeserializeObject<NodesContainer>(json);
+            levels = JsonConvert.DeserializeObject<LevelsContainer>(json);
         }
-        Nodes = nodes.nodes.ToList();
-        GridBase.OnGeneratedLevel();
+        Levels = levels.levels.ToList();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+}
+
+[Serializable]
+public class LevelsContainer
+{
+    public Level[] levels;
 }

@@ -1,7 +1,8 @@
 ﻿using System;
+using UnityEngine;
 
-[Serializable]
-public class NodesContainer
+[System.Serializable]
+public class Level
 {
-    public Node[] nodes;
+    public Node[] nodes { get; set; }
 }
