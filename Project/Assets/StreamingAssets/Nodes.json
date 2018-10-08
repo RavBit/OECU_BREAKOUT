@@ -1,0 +1,32 @@
+{
+    "nodes":[
+          {
+            "Name:":"Block:",
+            "nodePosX" : 0,
+            "nodePosY" : 0,
+            "maxSize" : 3,
+            "Dir": "Left"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 0,
+            "nodePosY" : 1,
+            "maxSize" : 3,
+            "Dir": "Left"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 2,
+            "nodePosY" : 0,
+            "maxSize" : 3,
+            "Dir": "Left"
+          },
+          {
+            "Name:":"Block:",
+            "nodePosX" : 2,
+            "nodePosY" : 2,
+            "maxSize" : 3,
+            "Dir": "Left"
+          }
+      ]
+}
